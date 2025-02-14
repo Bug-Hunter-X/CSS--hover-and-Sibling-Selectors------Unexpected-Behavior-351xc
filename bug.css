@@ -1,0 +1,22 @@
+The following CSS code snippet demonstrates an issue with unexpected behavior when using the `:hover` pseudo-class with sibling selectors.
+
+```css
+.container {
+  display: flex;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: lightblue;
+  margin: 5px;
+}
+
+.box:hover + .box {
+  background-color: lightcoral;
+}
+```
+
+The intended behavior is that when a `.box` element is hovered, its immediately following sibling `.box` element changes its background color. However, this only works when the hovered element is the first `.box`.  If you hover on a `.box` element that is not the first one, the effect won't cascade to the next sibling.  This is because the `+` sibling selector only targets the immediately following sibling, and not the next sibling of a hovered element which is not the first one. 
+
+This subtle unexpected behavior can be a source of confusion and difficult to debug.
