@@ -1,0 +1,20 @@
+The issue can be resolved by using the general sibling combinator (~) instead of the adjacent sibling combinator (+).  The general sibling combinator selects all following siblings.
+
+```css
+.container {
+  display: flex;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: lightblue;
+  margin: 5px;
+}
+
+.box:hover ~ .box {
+  background-color: lightcoral;
+}
+```
+
+This corrected CSS ensures that when any `.box` element is hovered, all subsequent sibling `.box` elements change their background color to lightcoral.  Note that Javascript might be a more suitable solution if more complex logic is required to manage the hover effects.
